@@ -1,0 +1,38 @@
+ <% include header.ejs %>
+       <div class="container">
+        <div class="row">
+            <div class="col col-md-2"></div>
+            <div class="col col-md-8">
+                <div class="editor">
+                    <h2 class="editable" contenteditable="true" id="note_title" name="title">New note title here...</h2>
+                    <hr>
+                    <div class="stylebar">
+                        <button type="button" class="btn btn-default stylebutton" id="action-bold">B</button>
+                        <button type="button" class="btn btn-default stylebutton" id="action-italic">I</button>
+                        <button type="button" class="btn btn-default stylebutton" id="action-underline">U</button>
+                        <select class="styleselect">
+                            <option value="<h1>">Heading 1</option>
+                            <option value="<h2>">Heading 2</option>
+                            <option value="<h3>">Heading 3</option>
+                            <option value="<h4>">Heading 4</option>
+                            <option value="<p>">Paragraph</option>
+                            <option value="<pre>">Pre-Formated</option>
+                        </select>
+                        <button type="button" class="btn btn-default stylebutton" id="action-ol">1.</button>
+                        <button type="button" class="btn btn-default stylebutton" id="action-ul"><span class="glyphicon glyphicon-list"></span>
+                        </button>
+
+                    </div>
+                    <hr>
+                    <div class="editable" contenteditable="true" id="note_content" name="content">Your text goes here...</div>
+                    <div class="submitbar">
+                        <button type="submit" class="btn btn-default submitbutton" id="submitbutton">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="javascript/richeditor.js"></script>
+</body>
+
+</html>

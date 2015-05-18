@@ -1,0 +1,25 @@
+<% include header.ejs %>
+<div class="container">
+        <h3>Your Recent Notes</h3>
+        
+        <% for(var i=0 ; i < notes.length; i++) {%>
+                <% if ((i % 3==0 ) && (i !=0 )) { %>
+        </div>
+        <div class="row">
+            <% } %>
+            <div class="col col-md-4">
+                <div class="note">
+                    <div class="note-title"><%= notes[i].Title %></div>
+                    <hr>
+                    <div class="note-body">
+                    <% var substr = notes[i].demo_text %>
+                    
+                    <%- substr%> ...</div>
+                    <hr>
+                    <a href="editnote/<%=notes[i]._id%>">Edit</a>
+                </div>
+            </div>
+            <% } %>
+    </div>
+	</body>
+	</html>

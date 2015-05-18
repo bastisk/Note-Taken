@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <title>Übung erstellen</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <style>
+        body        { padding-top:80px; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+
+
+   
+
+    <!-- show any messages that come back with authentication -->
+
+    <!-- LOGIN FORM -->
+    <form action="/exercises/add" method="post">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" name="Name">
+        </div>
+        <div class="form-group">
+            <label>Beschreibung</label>
+            <input type="text" class="form-control" name="Description">
+        </div>
+        <div class="form-group">
+            <label>Image Link</label>
+            <input type="text" class="form-control" name="IMG">
+        </div>
+
+        <button type="submit" class="btn btn-warning btn-lg">Erstelle Übung</button>
+    </form>
+
+
+</div>
+</body>
+</html>

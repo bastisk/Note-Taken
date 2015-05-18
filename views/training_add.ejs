@@ -1,0 +1,110 @@
+<% include header.ejs %>
+    <div class="jumbotron" id="jumbo">
+        <div class="container">
+            <h2>Neuer Trainingsplan </h2>
+        </div>
+    </div>
+    <div class="col-md-1">
+        <button id="button" class="btn btn-primary">Übung hinzufügen</button>
+
+    </div>
+    <div class="col-md-6" id="sliding">
+        <div class="panel panel-default">
+            <div class="panel-heading">Übungen
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="close_slider">&times;</button>
+            </div>
+            <div class="panel-body">
+                <input type="text" class="form-control" placeholder="Suchbegriff">
+                <hr>
+                <div id="mygrid-wrapper-div">
+                    <table class="table">
+                        <tbody>
+                            <% for(var i=0 ; i < exercises.length; i++) {%>
+                                <tr draggable="true" id="<%=exercises[i]._id%>">
+                                    <td><img src="<%=exercises[i].IMG%>" alt="Bildfehler" id="thumbnailaltern" height="100px">
+                                    </td>
+                                    <td>
+                                        <%=exercises[i].Name %>
+                                    </td>
+                                    <td>
+                                        <%var substr=exercises[i].Description.substring(0,200)%>
+                                            <%=substr%>
+                                    </td>
+                                    <td>
+                                        <button id="addbtn" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+
+            <div class="col-md-8">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label>Kunde</label>
+                        <input type="text" class="form-control" id="kundenname" name="kundenname" placeholder="Kundenname">
+                    </div>
+                    <div class="form-group">
+                        <label>Trainingsplan</label>
+                        <input type="text" class="form-control" name="password_new" placeholder="Trainingsplan-Name">
+                    </div>
+                </form>
+                <hr>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Übungen
+                    </div>
+                    <div class="panel-body dropzone">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Bild</th>
+                                    <th>Name</th>
+                                    <th>Beschreibung</th>
+                                </tr>
+                            </thead>
+                            <tbody id="drop">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <hr>
+                <a href="#" class="btn btn-default">Abbrechen</a>
+                <a href="#" class="btn btn-primary">Speichern</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript" src="/javascript/bootstrap.js"></script>
+    <script type="text/javascript" src="/javascript/trainings_drop.js"></script>
+    <script type="text/javascript" src="/javascript/trainings_slide.js"></script>
+    <script>
+        $("#button").click(function () {
+            runEffect();
+        });
+
+        $("#close_slider").click(function () {
+            $("#sliding").hide("slide", 500);
+        });
+
+        function runEffect() {
+            $("#sliding").show("slide", 500);
+        };
+
+        $("#sliding").hide();
+    </script>
+    </body>
+
+    </html>
