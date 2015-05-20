@@ -4,9 +4,10 @@
     <title>New Note</title>
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+    <link rel="stylesheet" href="stylesheets/context.bootstrap.css" type="text/css">
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="javascript/bootstrap.js"></script>
-    <script type="text/javascript" src="javascript/aloha.min.js"></script>
+    <script src="javascript/context.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300italic' rel='stylesheet' type='text/css'>
 </head>
 
@@ -96,7 +97,7 @@
 
                     </div>
                     <hr>
-                    <p class="editable" contenteditable="true" id="note_content" name="content">Your text goes here...</p>
+                    <div class="editable" contenteditable="true" id="note_content" name="content">Your text goes here...</div>
                     <div class="submitbar">
                         <input type="submit" class="btn btn-default submitbutton" id="submitbutton" value="Save">
                     </div>
@@ -106,6 +107,7 @@
         </div>
     </div>
     <script src="javascript/richeditor.js"></script>
+    <script src="javascript/contextmenu.js"></script>
 </body>
 
 </html>
