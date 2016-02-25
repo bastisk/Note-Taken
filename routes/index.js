@@ -3,7 +3,7 @@ var router = express.Router();
 var Note = require('../models/note');
 
 var isAuthenticated = function (req, res, next) {
-	// if user is authenticated in the session, call the next() to call the next request handler 
+	// if user is authenticated in the session, call the next() to call the next request handler
 	// Passport adds this method to request object. A middleware is allowed to add properties to
 	// request and response objects
 	if (req.isAuthenticated())
@@ -24,7 +24,7 @@ module.exports = function(passport){
 	router.post('/login', passport.authenticate('login', {
 		successRedirect: '/',
 		failureRedirect: '/login',
-		failureFlash : true  
+		failureFlash : true
 	}));
 
 	/* GET Registration Page */
@@ -36,7 +36,7 @@ module.exports = function(passport){
 	router.post('/signup', passport.authenticate('signup', {
 		successRedirect: '/login',
 		failureRedirect: '/signup',
-		failureFlash : true  
+		failureFlash : true
 	}));
 
 	/* GET Home Page */
@@ -46,41 +46,54 @@ module.exports = function(passport){
             res.render('index', { user: req.user, notes: notes });
         });
 	});
-    
+
     router.get('/addnote', isAuthenticated, function(req, res){
         res.render('addnote', {user: req.user});
     });
-    
+
+		router.get('/addnewnote', isAuthenticated, function(req, res){
+				res.render('newadd', {user: req.user});
+		});
+
     router.get('/editnote/:id', isAuthenticated, function(req, res){
         Note.findOne({ '_id': req.params.id}, function(err, foundex) {
             if(err) return next(err);
-            res.render('editnote', { note: foundex, user: req.user });
-        });               
+            res.render('newedit', { note: foundex, user: req.user });
+        });
     });
-    
+
     router.post('/editnote/:id', isAuthenticated, function(req, res, next) {
     Note.findByIdAndUpdate(req.params.id, req.body , function (err, post) {
         if (err) return next(err);
         res.redirect('/');
         });
     });
-    
+
     router.post('/deletenote', isAuthenticated, function(req, res, next) {
     Note.findOneAndRemove({_id: req.body._id }, function(err) {
          if (err) return next(err);
         res.redirect('/');
     });
     });
-    
+
     router.post('/addnote', isAuthenticated, function(req, res){
         var NewNote = new Note();
         NewNote.Title = req.body.title;
         NewNote.Text = req.body.content;
-        NewNote.demo_text = req.body.demo_text;
         NewNote.save(function(err) {
         res.redirect('/');
     });
     });
+
+		router.post('/addnewnote', isAuthenticated, function(req, res){
+				var NewNote = new Note();
+				NewNote.Title = req.body.title;
+				NewNote.Text = req.body.content;
+				console.log("yes");
+				NewNote.save(function(err) {
+				res.redirect('/');
+		});
+		});
 
 	/* Handle Logout */
 	router.get('/signout', function(req, res) {
@@ -90,8 +103,3 @@ module.exports = function(passport){
 
 	return router;
 }
-
-
-
-
-

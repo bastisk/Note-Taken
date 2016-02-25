@@ -1,0 +1,26 @@
+<% include header.ejs %>
+  <div class="container">
+    <form method="post">
+      <div class="row">
+        <div>
+          <input class="form-control" type="text" name="title" placeholder="My new note" value="<%= note.Title %>">
+          <hr>
+          <div id="editor">
+            <textarea v-model="input" debounce="100" name="content"><%= note.Text %>
+            </textarea>
+            <div v-html="input | marked" id="note_content"></div>
+          </div>
+          <hr>
+          <div class="submitbar">
+            <button type="submit" class="btn btn-default submitbutton" id="deletebutton" value="<%=note._id%>">Delete</button>
+            <button type="submit" class="btn btn-default submitbutton" id="changebutton">Save</button>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <script src="../javascript/vueeditor.js"></script>
+  </body>
+
+  </html>

@@ -7,7 +7,6 @@
 }
 
 .submitbutton {
-    border: 0px solid grey;
 }
 
 h2.editable{
@@ -16,25 +15,50 @@ h2.editable{
     color: #ABABAB;
 }
 
-div.editable{
-    padding-left:20px;
-    background-color: #F8F8F8;
-    min-height: 50%;
+.form-control {
+  border-radius: 0px;
+}
+#editor {
+  margin: 0;
+  min-height: 300px;
+  color: #333;
 }
 
-.editor{
-    background-color: #F8F8F8;
-    border-radius: 10px;
+textarea, #editor div {
+  display: inline-block;
+  width: 49%;
+  height: 70vh;
+  vertical-align: top;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 20px;
+  background-color: #f6f6f6;
 }
+
+textarea {
+  border: none;
+  border-right: 1px solid #ccc;
+  resize: none;
+  outline: none;
+  font-size: 14px;
+  font-family: 'Monaco', courier, monospace;
+  padding: 20px;
+}
+
+code {
+  color: #f66;
+}
+
+
 
 body {
-font-family: 'Merriweather', serif;
-    background-image: url(../textures/escheresque.png);
+  font-family: 'Merriweather', serif;
 }
 
 .note{
-    background-color: #F8F8F8;
-    border-radius: 10px;  
+    /*background-color: #F8F8F8;*/
+    border-radius: 10px;
     margin: 10px;
 }
 .note-title{
@@ -45,7 +69,7 @@ font-family: 'Merriweather', serif;
 .note-body{
     padding-left:20px;
     padding-bottom: 20px;
-    background-color: #F8F8F8;
+    /*background-color: #F8F8F8;*/
     border-radius: 10px;
 }
 
