@@ -1,0 +1,28 @@
+<% include header.ejs %>
+  <div class="container">
+
+    <form method="post">
+      <div class="row">
+        <div>
+          <h2><%= note.Title %></h2>
+          <hr>
+          <div id="viewer">
+            <div id="note_content"></div>
+          </div>
+          <hr>
+          <div class="submitbar">
+            <a class="btn btn-danger submitbutton" href="edit/<%=note._id%>">Delete</a>
+            <a class="btn btn-default submitbutton" href="/notes/edit/<%=note._id%>">Edit</a>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <script>
+  var stuff = "<%-note.Text %>"
+  document.getElementById('note_content').innerHTML = marked(stuff);
+  </script>
+  </body>
+
+  </html>

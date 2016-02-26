@@ -1,25 +1,9 @@
 <% include header.ejs %>
 <div class="container">
-        <h3>Your Recent Notes</h3>
-         <div class="row">
-        <% for(var i=0 ; i < notes.length; i++) {%>
-                <% if ((i % 3==0 ) && (i !=0 )) { %>
-        </div>
-        <div class="row">
-            <% } %>
-            <div class="col col-md-4">
-                <div class="note">
-                    <div class="note-title"><a href="editnote/<%=notes[i]._id%>"><%= notes[i].Title %></a></div>
-                    <!--<hr>
-                    <div class="note-body">
-                    <% var substr = notes[i].demo_text %>
-                    
-                    <%- substr%> ...</div>
-                    <hr>
-                    <a href="editnote/<%=notes[i]._id%>">Edit</a>-->
-                </div>
-            </div>
-            <% } %>
-    </div>
+        <h2>Welcome</h2>
+        <ul>
+          <li><a href="/notes">View Notes</a></li>
+          <li><a href="/notes/add">Add Notes</a></li>
+        </ul>
 	</body>
 	</html>
